@@ -56,7 +56,7 @@ function buildColumn(video_src, video_title, thumb) {
 	var video = document.createElement("video");
 	video.className = "responsive-video";
 	video.setAttribute("controls", "true");
-	video.setAttribute("poster", thumb);
+	if (thumb != "null" && thumb != null) video.setAttribute("poster", thumb);
 	var source = document.createElement("source");
 	source.setAttribute("src", video_src);
 	source.setAttribute("video", "video/mp4");
