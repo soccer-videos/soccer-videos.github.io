@@ -30,11 +30,11 @@ function doSomething (l) {
 				var video_src = "https://" + response.files.mp4.url;
 				var col = buildColumn(video_src, l[i].title);
 				row.appendChild(col);
-				if (((i-1) % 2 == 0 && i != 0) || (i + 1 == l.length)) {
+				//if (((i-1) % 2 == 0 && i != 0) || (i + 1 == l.length)) {
 					document.getElementById("c").appendChild(row);
 					row = document.createElement("div");
 					row.className = "row";
-				}
+				//}
 				if (i + 1 == l.length) {
 					document.getElementById("spinner").remove();
 				}
@@ -47,7 +47,7 @@ function doSomething (l) {
 
 function buildColumn(video_src, video_title) {
 	var col = document.createElement("div");
-	col.className = "col s6";
+	col.className = "col s12";
 	var title = document.createElement("h6");
 	title.innerHTML = video_title + " <a href=\"" + video_src + "\">&#128279;</a>";
 	var video_cont = document.createElement("div");
