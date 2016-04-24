@@ -27,8 +27,9 @@ function doSomething (l) {
 		xhttp.onreadystatechange = function() {
 			if (xhttp.readyState == 4 && xhttp.status == 200) {
 				var response = JSON.parse(xhttp.responseText);
-				var video_src = "https://" + response.files.mp4.url;
-				var col = buildColumn(video_src, l[i].title);
+				var video_src = "https:" + response.files.mp4.url;
+				var thumb = "https:" + response.thumbnail_url;
+				var col = buildColumn(video_src, l[i].title, thumb);
 				row.appendChild(col);
 				//if (((i-1) % 2 == 0 && i != 0) || (i + 1 == l.length)) {
 					document.getElementById("c").appendChild(row);
@@ -45,7 +46,7 @@ function doSomething (l) {
 	}
 }
 
-function buildColumn(video_src, video_title) {
+function buildColumn(video_src, video_title, thumb) {
 	var col = document.createElement("div");
 	col.className = "col s12";
 	var title = document.createElement("h6");
@@ -55,6 +56,7 @@ function buildColumn(video_src, video_title) {
 	var video = document.createElement("video");
 	video.className = "responsive-video";
 	video.setAttribute("controls", "true");
+	video.setAttribute("poster", thumb);
 	var source = document.createElement("source");
 	source.setAttribute("src", video_src);
 	source.setAttribute("video", "video/mp4");
