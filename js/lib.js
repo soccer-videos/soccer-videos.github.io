@@ -33,6 +33,7 @@ function doSomething (l) {
 				row.appendChild(col);
 				//if (((i-1) % 2 == 0 && i != 0) || (i + 1 == l.length)) {
 					document.getElementById("c").appendChild(row);
+					document.getElementById("c").appendChild(document.createElement("hr"));
 					row = document.createElement("div");
 					row.className = "row";
 				//}
@@ -48,7 +49,7 @@ function doSomething (l) {
 
 function buildColumn(video_src, video_title, thumb) {
 	var col = document.createElement("div");
-	col.className = "col s12 z-depth-2";
+	col.className = "col s12";
 	var title = document.createElement("h6");
 	title.innerHTML = video_title + " <a href=\"" + video_src + "\">&#128279;</a>";
 	var video_cont = document.createElement("div");
